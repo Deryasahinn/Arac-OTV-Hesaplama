@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ÖTV Hesaplama</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css"
+        integrity="sha512-b2QcS5SsA8tZodcDtGRELiGv5SaKSk1vDHDaQRda0htPYWZ6046lr3kJ5bAAQdpV2mmA/4v0wQF9MyU6/pDIAg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <style>
+
+
+    </style>
+</head>
+
+<body>
+
+    <div class="container-fluid py-5 bg-secondary">
+
+        <div class="row">
+            <div class="col-md-12">
+                <h1 class="text-white text-center">Otomobil ÖTV Hesaplama</h1>
+            </div>
+        </div>
+        <div class="row py-5">
+            <div class="col-md-6 mx-auto">
+                <p class="text-white" >Motor Hacmi</p>
+
+                <input onkeyup="hesap()"  type="number" placeholder="Motor Hacmi" class="form-control mb-3" id="motor">
+                <p class=" text-white" >Fiyat</p>
+                <input onkeyup="hesap()"   type="number" placeholder="Gümrük Giriş Fiyatı" class="form-control mb-3" id="fiyat">
+                <p id="sonuc" class="text-center text-white"></p>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+    <script>
+
+function hesap(){
+var fiyat=document.getElementById('fiyat').value
+var motor=document.getElementById('motor').value
+var satis;
+var otv;
+var kdv=1.20
+var kar=1.20
+
+if(motor<1600){
+    if(fiyat<184000){
+        otv=1.45
+    }else if(fiyat<220000){
+        otv=1.50
+    }else if(fiyat<250000){
+        otv=1.60
+    }else if(fiyat<280000){
+        otv=1.70
+    }else{
+        otv=1.80
+    }
+}else if(motor<2000){
+    if(fiyat<170000){
+        otv=2.30
+    }else{
+        otv=2.50
+    }
+}else{
+    otv=3.20
+}
+
+satis=fiyat*otv*kdv*kar
+document.getElementById('sonuc').innerText=satis
+
+    
+}
+
+
+    </script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"
+        integrity="sha512-X/YkDZyjTf4wyc2Vy16YGCPHwAY8rZJY+POgokZjQB2mhIRFJCckEGc6YyX9eNsPfn0PzThEuNs+uaomE5CO6A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</body>
+
+</html>
